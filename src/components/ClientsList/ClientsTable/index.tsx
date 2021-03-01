@@ -4,8 +4,7 @@ import { ClientsTableProps } from "../../../interfaces";
 
 const { editIcon } = Images;
 
-const ClientsTable: React.FC<ClientsTableProps> = ({ clients, handleModal }) => {
-
+const ClientsTable: React.FC<ClientsTableProps> = ({ clients, editClient }) => {
   return (
     <table className="table-auto m-auto border border-green-100 w-9/12">
       <thead>
@@ -31,7 +30,7 @@ const ClientsTable: React.FC<ClientsTableProps> = ({ clients, handleModal }) => 
               {item.lastName}
             </td>
             <td className="border border-green-100 text-base">{item.phone}</td>
-            <td onClick={handleModal}>
+            <td onClick={(event) => editClient(event, item)}>
               <img
                 className="w-8 h-8 m-auto"
                 alt={editIcon.alt}
