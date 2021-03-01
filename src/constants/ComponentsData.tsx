@@ -5,6 +5,10 @@ export const Images: ListOfImages = {
     src: "/img/logo.png",
     alt: "logo",
   },
+  editIcon: {
+    src: "/img/edit.png",
+    alt: "editIcon",
+  },
 };
 export const ComponentsText: Text = {
   addBtn: "Add Client",

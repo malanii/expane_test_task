@@ -1,3 +1,5 @@
+import {ReactNode} from "react";
+
 interface Image {
   alt: string;
   src: string;
@@ -20,4 +22,11 @@ export interface ClientsTableProps {
   clients: {
     getClients: Array<Client>;
   };
+  handleModal: () => void;
+}
+
+export interface PortalProps {
+  children: ReactNode;
+  className: string;
+  el: string;
 }

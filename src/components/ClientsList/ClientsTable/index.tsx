@@ -1,14 +1,20 @@
 import React from "react";
-import { HeaderOfTable } from "../../../constants/ComponentsData";
+import { HeaderOfTable, Images } from "../../../constants/ComponentsData";
 import { ClientsTableProps } from "../../../interfaces";
 
-const ClientsTable: React.FC<ClientsTableProps> = ({ clients }) => {
+const { editIcon } = Images;
+
+const ClientsTable: React.FC<ClientsTableProps> = ({ clients, handleModal }) => {
+
   return (
     <table className="table-auto m-auto border border-green-100 w-9/12">
       <thead>
         <tr>
           {HeaderOfTable.map((i) => (
-            <th key={i} className="border border-green-100 text-green-900">
+            <th
+              key={i}
+              className="border border-green-100 text-xl text-green-900"
+            >
               {i}
             </th>
           ))}
@@ -16,12 +22,22 @@ const ClientsTable: React.FC<ClientsTableProps> = ({ clients }) => {
       </thead>
       <tbody>
         {clients?.getClients.map((item) => (
-          <tr>
-            <td>{item.id}</td>
-            <td>{item.firstName}</td>
-            <td>{item.lastName}</td>
-            <td>{item.phone}</td>
-            <td>icon</td>
+          <tr key={item.id} className="border border-green-100 text-green-900">
+            <td className="border border-green-100 text-base">{item.id}</td>
+            <td className="border border-green-100 text-base">
+              {item.firstName}
+            </td>
+            <td className="border border-green-100 text-base">
+              {item.lastName}
+            </td>
+            <td className="border border-green-100 text-base">{item.phone}</td>
+            <td onClick={handleModal}>
+              <img
+                className="w-8 h-8 m-auto"
+                alt={editIcon.alt}
+                src={editIcon.src}
+              />
+            </td>
           </tr>
         ))}
       </tbody>
