@@ -5,7 +5,7 @@ import "./styles/app.css";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <NavBar />
       <ClientsList />
     </div>

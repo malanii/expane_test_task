@@ -4,7 +4,7 @@ import AddClientBtn from "./AddClientBtn";
 
 export const NavBar: React.FC = () => {
   return (
-    <div>
+    <div className="flex justify-between bg-green-50 p-4">
       <Logo /> <AddClientBtn />
     </div>
   );
