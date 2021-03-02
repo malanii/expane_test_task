@@ -1,26 +1,23 @@
 import React, { useState } from "react";
-import { FormProps } from "../../../interfaces";
-import { ComponentsText } from "../../../constants/ComponentsData";
+import { FormProps, ShortenedClient } from "../../../interfaces";
+import { ComponentsText, FormLabels } from "../../../constants/ComponentsData";
 import { useForm } from "react-hook-form";
-import { Client } from "../../../interfaces";
+import { Client, Text } from "../../../interfaces";
 import { UpdateClient } from "../../../helpers/requests";
 import { useMutation } from "react-query";
 
 const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
   const { register, handleSubmit, errors } = useForm<Client>();
-  const [updatedClient, setUpdatingClient] = useState<{
-    id: string;
-    firstName: string;
-    lastName: string;
-    phone: string;
-  }>({
+  const [updatedClient, setUpdatingClient] = useState<ShortenedClient>({
     id: client.id,
     firstName: client.firstName,
     lastName: client.lastName,
     phone: client.phone,
   });
 
-  const { mutate } = useMutation(UpdateClient, { onSuccess: () => refetch() });
+  const { mutate, isSuccess, isLoading } = useMutation(UpdateClient, {
+    onSuccess: () => refetch(),
+  });
 
   const handleChange = (event: any) => {
     setUpdatingClient((prevState) => ({
@@ -35,6 +32,13 @@ const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
       await mutate(updatedClient);
     } catch (e) {}
   };
+  if (isSuccess) {
+    return <p>Successfully updated </p>;
+  }
+  if (isLoading) {
+    return <p>Please, wait, loading </p>;
+  }
+
   return (
     <div className="w-3/6 flex flex-col justify-center items-center h-full bg-green-400">
       <p className="text-center text-green-800 font-semibold text-lg mb-3">

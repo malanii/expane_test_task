@@ -5,7 +5,7 @@ export const GetClients = async () =>
   await request(
     api,
     gql`
-      query {
+      query GetClients{
         getClients {
           id
           firstName
@@ -21,7 +21,7 @@ export const UpdateClient = async (updatedCl: any) => {
   const { data } = await request(
     api,
     gql`
-        mutation GetClients {
+        mutation UpdateClient {
           updateClient(id: ${id} firstName: "${firstName}" lastName: "${lastName}" phone: "${phone}") {
             firstName
             lastName

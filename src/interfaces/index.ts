@@ -37,5 +37,11 @@ export interface EditClientProps {
 
 export interface FormProps {
   client: Client;
-    refetch: ()=>void
+  refetch: () => void;
+}
+export interface ShortenedClient {
+  id: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
 }

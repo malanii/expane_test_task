@@ -12,17 +12,25 @@ export const Images: ListOfImages = {
   modal: {
     src: "/img/modal.png",
     alt: "modal",
-  }
+  },
 };
 export const ComponentsText: Text = {
   addBtn: "Add Client",
   title: "Our Clients",
-  modal: "Do you really want to change some information about clients?"
+  modal: "Do you really want to change some information about clients?",
 };
 export const HeaderOfTable: Array<string> = [
+  "Number",
+  "Avatar",
   "Id",
   "First Name",
   "Last Name",
   "Phone",
   "Edit",
 ];
+export const FormLabels: Text = {
+  id: "Identification number",
+  name: "First Name",
+  lastName: "Last Name",
+  phone: "Phone",
+};

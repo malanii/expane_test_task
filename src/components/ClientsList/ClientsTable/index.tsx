@@ -20,8 +20,17 @@ const ClientsTable: React.FC<ClientsTableProps> = ({ clients, editClient }) => {
         </tr>
       </thead>
       <tbody>
-        {clients?.getClients.map((item) => (
+        {clients?.getClients.map((item, index) => (
           <tr key={item.id} className="border border-green-100 text-green-900">
+            <td className="border border-green-100 text-base">{index + 1}</td>
+            <td className="w-10 h-10">
+              <img
+                className="w-10 h-10 m-auto overflow-hidden"
+                alt="avatar"
+                src={item.avatarUrl}
+              />
+            </td>
+
             <td className="border border-green-100 text-base">{item.id}</td>
             <td className="border border-green-100 text-base">
               {item.firstName}
