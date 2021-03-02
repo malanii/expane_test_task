@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FormProps, ShortenedClient } from "../../../interfaces";
 import { ComponentsText, FormLabels } from "../../../constants/ComponentsData";
 import { useForm } from "react-hook-form";
-import { Client, Text } from "../../../interfaces";
+import { Client } from "../../../interfaces";
 import { UpdateClient } from "../../../helpers/requests";
 import { useMutation } from "react-query";
 
@@ -45,7 +45,7 @@ const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
         {ComponentsText.modal}
       </p>
       <form className="flex flex-col w-4/5 " onSubmit={onSubmit}>
-        <label className="text-green-800 font-semibold">Id</label>
+        <label className="text-green-800 font-semibold">{FormLabels.id}</label>
         {errors.id && <p>This field is required</p>}
         <input
           type="text"
@@ -54,7 +54,9 @@ const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
           onChange={handleChange}
           ref={register({ required: true })}
         />
-        <label className="text-green-800 font-semibold">Name</label>
+        <label className="text-green-800 font-semibold">
+          {FormLabels.name}
+        </label>
         {errors.firstName && <p>This field is required</p>}
         <input
           type="text"
@@ -63,7 +65,9 @@ const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
           onChange={handleChange}
           ref={register({ required: true })}
         />
-        <label className="text-green-800 font-semibold">Last Name</label>
+        <label className="text-green-800 font-semibold">
+          {FormLabels.lastName}
+        </label>
         {errors.lastName && <p>This field is required</p>}
         <input
           type="text"
@@ -72,7 +76,9 @@ const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
           defaultValue={client.lastName}
           ref={register({ required: true })}
         />
-        <label className="text-green-800 font-semibold">Phone</label>
+        <label className="text-green-800 font-semibold">
+          {FormLabels.phone}
+        </label>
         {errors.phone && <p>This field is required</p>}
         <input
           type="text"

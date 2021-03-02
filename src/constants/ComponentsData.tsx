@@ -20,12 +20,12 @@ export const ComponentsText: Text = {
   modal: "Do you really want to change some information about clients?",
 };
 export const HeaderOfTable: Array<string> = [
-  "Number",
+  "N",
   "Avatar",
-  "Id",
   "First Name",
   "Last Name",
   "Phone",
+  "Id",
   "Edit",
 ];
 export const FormLabels: Text = {
