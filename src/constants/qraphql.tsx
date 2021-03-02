@@ -7,6 +7,8 @@ export const GET_CLIENTS = gql`
       firstName
       lastName
       phone
+      avatarUrl
     }
   }
 `;
+

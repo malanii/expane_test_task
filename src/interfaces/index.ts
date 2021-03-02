@@ -24,9 +24,17 @@ export interface ClientsTableProps {
   };
   editClient: (event: React.MouseEvent, item: Client) => void;
 }
-
 export interface PortalProps {
   children: ReactNode;
   className: string;
   el: string;
+}
+
+export interface EditClientProps {
+  handleModal: any;
+  client: Client;
+}
+
+export interface FormProps {
+  client: Client;
 }
