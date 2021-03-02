@@ -40,55 +40,59 @@ const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
   }
 
   return (
-    <div className="w-3/6 flex flex-col justify-center items-center h-full bg-green-400">
-      <p className="text-center text-green-800 font-semibold text-lg mb-3">
+    <div className="w-3/6 flex flex-col justify-center items-center h-full bg-green-500">
+      <p className="text-center text-green-900 mb-5 px-2 font-bold text-2xl">
         {ComponentsText.modal}
       </p>
-      <form className="flex flex-col w-4/5 " onSubmit={onSubmit}>
-        <label className="text-green-800 font-semibold">{FormLabels.id}</label>
+      <form className="flex flex-col w-4/5 text-center" onSubmit={onSubmit}>
+        <label className="text-green-900 font-semibold">{FormLabels.id}</label>
         {errors.id && <p>This field is required</p>}
         <input
+          className="my-1 text-center"
           type="text"
           name="id"
           defaultValue={client.id}
           onChange={handleChange}
           ref={register({ required: true })}
         />
-        <label className="text-green-800 font-semibold">
+        <label className="text-green-900 font-semibold">
           {FormLabels.name}
         </label>
         {errors.firstName && <p>This field is required</p>}
         <input
           type="text"
           name="firstName"
+          className="my-1 text-center"
           defaultValue={client.firstName}
           onChange={handleChange}
           ref={register({ required: true })}
         />
-        <label className="text-green-800 font-semibold">
+        <label className="text-green-900 font-semibold">
           {FormLabels.lastName}
         </label>
         {errors.lastName && <p>This field is required</p>}
         <input
           type="text"
           name="lastName"
+          className="my-1 text-center"
           onChange={handleChange}
           defaultValue={client.lastName}
           ref={register({ required: true })}
         />
-        <label className="text-green-800 font-semibold">
+        <label className="text-green-900 font-semibold">
           {FormLabels.phone}
         </label>
         {errors.phone && <p>This field is required</p>}
         <input
           type="text"
           name="phone"
+          className="my-1 text-center"
           onChange={handleChange}
           defaultValue={client.phone}
           ref={register({ required: true })}
         />
         <button
-          className="w-full bg-green-600 mt-3 py-2 text-white font-semibold"
+          className="w-full bg-green-700 mt-3 py-2 text-white font-semibold"
           type="submit"
         >
           Change

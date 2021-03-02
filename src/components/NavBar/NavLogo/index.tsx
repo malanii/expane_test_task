@@ -1,5 +1,5 @@
 import React from "react";
-import { Images } from "../../constants/ComponentsData";
+import { Images } from "../../../constants/ComponentsData";
 
 const { logo } = Images;
 

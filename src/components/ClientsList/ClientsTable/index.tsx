@@ -12,7 +12,7 @@ const ClientsTable: React.FC<ClientsTableProps> = ({ clients, editClient }) => {
           {HeaderOfTable.map((i) => (
             <th
               key={i}
-              className="border border-green-100 text-xl text-green-900"
+              className="border border-green-400 text-xl text-green-900"
             >
               {i}
             </th>
@@ -21,8 +21,8 @@ const ClientsTable: React.FC<ClientsTableProps> = ({ clients, editClient }) => {
       </thead>
       <tbody>
         {clients?.getClients.map((item, index) => (
-          <tr key={item.id} className="border border-green-100 text-green-900">
-            <td className="border border-green-100 text-base w-14">
+          <tr key={item.id} className="border border-green-400 text-green-900">
+            <td className="border border-green-400 text-base w-14">
               {index + 1}
             </td>
             <td className="w-10 h-10">
@@ -32,16 +32,16 @@ const ClientsTable: React.FC<ClientsTableProps> = ({ clients, editClient }) => {
                 src={item.avatarUrl}
               />
             </td>
-            <td className="border border-green-100 text-base w-1/4">
+            <td className="border border-green-400 text-base w-1/4">
               {item.firstName}
             </td>
-            <td className="border border-green-100 text-base w-1/4">
+            <td className="border border-green-400 text-base w-1/4">
               {item.lastName}
             </td>
-            <td className="border border-green-100 text-base w-1/4">
+            <td className="border border-green-400 text-base w-1/4">
               {item.phone}
             </td>
-            <td className="border border-green-100 text-base w-14">{item.id}</td>
+            <td className="border border-green-400 text-base w-14">{item.id}</td>
             <td className="w-14" onClick={(event) => editClient(event, item)}>
               <img
                 className="w-8 h-8 m-auto"

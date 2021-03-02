@@ -10,7 +10,7 @@ const EditClientModal: React.FC<any> = ({ handleModal, client, refetch }) => {
     <Portal className="root-portal" el="div">
       <WrapperForModal>
         <button
-          className="absolute right-1 focus:outline-none"
+          className="absolute right-1 focus:outline-none text-white"
           onClick={handleModal}
         >
           x
