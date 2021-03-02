@@ -3,7 +3,7 @@ import { FormProps } from "../../../interfaces";
 import { ComponentsText } from "../../../constants/ComponentsData";
 import { useForm } from "react-hook-form";
 import { Client } from "../../../interfaces";
-import { UpdateClient } from "../../../hooks/useGetClients";
+import { UpdateClient } from "../../../helpers/requests";
 import { useMutation } from "react-query";
 
 const FormModal: React.FC<FormProps> = ({ client }) => {

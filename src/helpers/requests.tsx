@@ -1,13 +1,21 @@
 import { api } from "../constants/api";
-import { useQuery } from "react-query";
-import { GraphQLClient, request, gql } from "graphql-request";
+import { request, gql } from "graphql-request";
 
-export const useGetClients = (key: string, query: any) => {
-  const graphQLClient = new GraphQLClient(api);
-  const fetchData = async () => await graphQLClient.request(query);
-  return useQuery(key, fetchData);
-};
-
+export const GetClients = async () =>
+  await request(
+    api,
+    gql`
+      query {
+        getClients {
+          id
+          firstName
+          lastName
+          phone
+          avatarUrl
+        }
+      }
+    `
+  );
 export const UpdateClient = async (updatedCl: any) => {
   const { id, firstName, lastName, phone } = updatedCl;
   const { data } = await request(

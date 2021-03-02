@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Title from "../Title";
-import { useGetClients } from "../../hooks/useGetClients";
-import { GET_CLIENTS } from "../../constants/qraphql";
+import { GetClients } from "../../helpers/requests";
 import { Client } from "../../interfaces";
 import ClientsTable from "./ClientsTable";
 import EditClientModal from "../Modal/EditClientModal";
+import { useQuery } from "react-query";
 
 const ClientsList: React.FC = () => {
-  const { data } = useGetClients("clients", GET_CLIENTS);
+  const { isLoading, error, data } = useQuery("clients", GetClients);
 
   const [modalVisibility, setModal] = useState<boolean>(false);
   const [client, setClient] = useState<{}>({});
@@ -19,6 +19,12 @@ const ClientsList: React.FC = () => {
     handleModal();
     setClient(item);
   };
+  if (isLoading) {
+    return <p>Loading....</p>;
+  }
+  if (error) {
+    return <p>Oooops something went wrong....</p>;
+  }
   return (
     <div className="text-center	text-3xl">
       <Title />
