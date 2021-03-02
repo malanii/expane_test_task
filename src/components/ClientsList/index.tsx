@@ -7,7 +7,7 @@ import EditClientModal from "../Modal/EditClientModal";
 import { useQuery } from "react-query";
 
 const ClientsList: React.FC = () => {
-  const { isLoading, error, data } = useQuery("clients", GetClients);
+  const { isLoading, error, data, refetch } = useQuery("clients", GetClients);
 
   const [modalVisibility, setModal] = useState<boolean>(false);
   const [client, setClient] = useState<{}>({});
@@ -30,7 +30,7 @@ const ClientsList: React.FC = () => {
       <Title />
       <ClientsTable clients={data} editClient={editClient} />
       {modalVisibility && (
-        <EditClientModal handleModal={handleModal} client={client} />
+        <EditClientModal handleModal={handleModal} client={client} refetch={refetch}/>
       )}
     </div>
   );

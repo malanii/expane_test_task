@@ -37,4 +37,5 @@ export interface EditClientProps {
 
 export interface FormProps {
   client: Client;
+    refetch: ()=>void
 }

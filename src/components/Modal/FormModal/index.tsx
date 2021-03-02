@@ -6,7 +6,7 @@ import { Client } from "../../../interfaces";
 import { UpdateClient } from "../../../helpers/requests";
 import { useMutation } from "react-query";
 
-const FormModal: React.FC<FormProps> = ({ client }) => {
+const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
   const { register, handleSubmit, errors } = useForm<Client>();
   const [updatedClient, setUpdatingClient] = useState<{
     id: string;
@@ -20,7 +20,7 @@ const FormModal: React.FC<FormProps> = ({ client }) => {
     phone: client.phone,
   });
 
-  const { mutate } = useMutation(UpdateClient);
+  const { mutate } = useMutation(UpdateClient, { onSuccess: () => refetch() });
 
   const handleChange = (event: any) => {
     setUpdatingClient((prevState) => ({
