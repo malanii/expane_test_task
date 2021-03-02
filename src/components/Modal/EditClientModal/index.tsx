@@ -1,6 +1,7 @@
 import React from "react";
 import Portal from "../Portal";
 import WrapperForModal from "../WrapperForModal";
+import ContentModal from "../ContentModal";
 
 const EditClientModal: React.FC<any> = ({ handleModal, client }) => {
   console.log("client modal", client);
@@ -13,7 +14,9 @@ const EditClientModal: React.FC<any> = ({ handleModal, client }) => {
         >
           x
         </button>
-        <div className="">Modal</div>
+        <div className="flex justify-between h-full">
+          <ContentModal />
+        </div>
       </WrapperForModal>
     </Portal>
   );

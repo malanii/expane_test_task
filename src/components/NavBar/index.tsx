@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "./NavLogo";
+import Logo from "../Logo";
 import AddClientBtn from "./NavAddBtn";
 
 export const NavBar: React.FC = () => {

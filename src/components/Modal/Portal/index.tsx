@@ -13,7 +13,7 @@ const Portal: React.FC<PortalProps> = ({ children, className, el }) => {
     document.body.appendChild(container);
     container.setAttribute(
       "class",
-      "w-full top-0 left: 0 fixed flex justify-center items-center h-screen bg-gray-300 bg-opacity-75"
+      "w-full top-0 left: 0 fixed flex justify-center items-center h-screen bg-blue-200 bg-opacity-75"
     );
     document.body.style.overflow = "hidden";
     return () => {
