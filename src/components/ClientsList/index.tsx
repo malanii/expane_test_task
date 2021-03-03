@@ -5,6 +5,8 @@ import { Client } from "../../interfaces";
 import ClientsTable from "./ClientsTable";
 import EditClientModal from "../Modal/EditClientModal";
 import { useQuery } from "react-query";
+import PreLoader from "../PreLoader";
+import ErrorPage from "../ErrorPage";
 
 const ClientsList: React.FC = () => {
   const { isLoading, error, data, refetch } = useQuery("clients", GetClients);
@@ -20,17 +22,21 @@ const ClientsList: React.FC = () => {
     setClient(item);
   };
   if (isLoading) {
-    return <p>Loading....</p>;
+    return <PreLoader />;
   }
   if (error) {
-    return <p>Oooops something went wrong....</p>;
+    return <ErrorPage />;
   }
   return (
     <div className="text-center	text-3xl">
       <Title />
       <ClientsTable clients={data} editClient={editClient} />
       {modalVisibility && (
-        <EditClientModal handleModal={handleModal} client={client} refetch={refetch}/>
+        <EditClientModal
+          handleModal={handleModal}
+          client={client}
+          refetch={refetch}
+        />
       )}
     </div>
   );

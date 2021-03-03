@@ -34,5 +34,10 @@ export const FormLabels: Text = {
   lastName: "Last Name",
   phone: "Phone",
   errorMessage: "This field is required",
-  btn: "Change"
+  btn: "Change",
+};
+export const ModalProcessingText = {
+  loading: "Please, wait, loading",
+  success: "Successfully updated",
+  error: "Oopps, something went wrong",
 };

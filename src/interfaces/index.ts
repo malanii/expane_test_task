@@ -53,3 +53,6 @@ export interface InputProps {
   labelText: string;
   defaultValue: string;
 }
+export interface ProcessMessageProps {
+  message: string;
+}

@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { FormProps, ShortenedClient } from "../../../interfaces";
-import { ComponentsText, FormLabels } from "../../../constants/ComponentsData";
+import {
+  ComponentsText,
+  FormLabels,
+  ModalProcessingText,
+} from "../../../constants/ComponentsData";
 import { useForm } from "react-hook-form";
 import { Client } from "../../../interfaces";
 import { UpdateClient } from "../../../helpers/requests";
 import { useMutation } from "react-query";
 import Input from "./Input";
+import ProcessMessage from "../ProcessMessage";
 
 const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
   const { register, handleSubmit, errors } = useForm<Client>();
@@ -34,13 +39,13 @@ const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
     } catch (e) {}
   };
   if (isSuccess) {
-    return <p>Successfully updated </p>;
+    return <ProcessMessage message={ModalProcessingText.success} />;
   }
   if (isLoading) {
-    return <p>Please, wait, loading </p>;
+    return <ProcessMessage message={ModalProcessingText.loading} />;
   }
   if (isError) {
-    return <p>Oopps, something went wrong</p>;
+    return <ProcessMessage message={ModalProcessingText.error} />;
   }
   return (
     <div className="w-3/6 flex flex-col justify-center items-center h-full bg-green-500">
