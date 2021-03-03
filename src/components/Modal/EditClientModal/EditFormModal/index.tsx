@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { FormProps, ShortenedClient } from "../../../interfaces";
+import { FormProps, ShortenedClient } from "../../../../interfaces";
 import {
   ComponentsText,
   FormLabels,
   ModalProcessingText,
-} from "../../../constants/ComponentsData";
+} from "../../../../constants/ComponentsData";
 import { useForm } from "react-hook-form";
-import { Client } from "../../../interfaces";
-import { UpdateClient } from "../../../helpers/requests";
+import { Client } from "../../../../interfaces";
+import { UpdateClient } from "../../../../helpers/requests";
 import { useMutation } from "react-query";
-import Input from "./Input";
-import ProcessMessage from "../ProcessMessage";
+import Input from "../../Input";
+import ProcessMessage from "../../ProcessMessage";
 
-const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
+const EditFormModal: React.FC<FormProps> = ({ client, refetch }) => {
   const { register, handleSubmit, errors } = useForm<Client>();
   const [updatedClient, setUpdatingClient] = useState<ShortenedClient>({
     id: client.id,
@@ -84,11 +84,11 @@ const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
           className="w-full bg-green-700 mt-3 py-2 text-white font-semibold"
           type="submit"
         >
-          {FormLabels.btn}
+          {FormLabels.btnChange}
         </button>
       </form>
     </div>
   );
 };
 
-export default FormModal;
+export default EditFormModal;

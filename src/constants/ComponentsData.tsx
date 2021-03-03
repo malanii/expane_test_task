@@ -18,6 +18,7 @@ export const ComponentsText: Text = {
   addBtn: "Add Client",
   title: "Our Clients",
   modal: "Do you really want to change some information about clients?",
+  addModal: "Please, add information about client",
 };
 export const HeaderOfTable: Array<string> = [
   "N",
@@ -33,8 +34,10 @@ export const FormLabels: Text = {
   name: "First Name",
   lastName: "Last Name",
   phone: "Phone",
+  avatarUrl: "Avatar url",
   errorMessage: "This field is required",
-  btn: "Change",
+  btnChange: "Change",
+  btnAdd: "Add",
 };
 export const ModalProcessingText = {
   loading: "Please, wait, loading",

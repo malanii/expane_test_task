@@ -1,6 +1,6 @@
 import React from "react";
-import { InputProps } from "../../../../interfaces";
-import { FormLabels } from "../../../../constants/ComponentsData";
+import { InputProps } from "../../../interfaces";
+import { FormLabels } from "../../../constants/ComponentsData";
 
 export const Input: React.FC<InputProps> = ({
   handleChange,

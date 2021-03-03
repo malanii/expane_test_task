@@ -2,10 +2,9 @@ import React from "react";
 import Portal from "../Portal";
 import WrapperForModal from "../WrapperForModal";
 import ContentModal from "../ContentModal";
-import EditFormModal from "./EditFormModal";
-import { EditClientProps } from "../../../interfaces";
+import AddFormModal from "./AddFormModal";
 
-const EditClientModal: React.FC<any> = ({ handleModal, client, refetch }) => {
+const AddClientModal: React.FC<any> = ({ handleModal, refetch }) => {
   return (
     <Portal className="root-portal" el="div">
       <WrapperForModal>
@@ -17,11 +16,11 @@ const EditClientModal: React.FC<any> = ({ handleModal, client, refetch }) => {
         </button>
         <div className="flex justify-between h-full">
           <ContentModal />
-          <EditFormModal client={client} refetch={refetch}/>
+          <AddFormModal refetch={refetch}/>
         </div>
       </WrapperForModal>
     </Portal>
   );
 };
 
-export default EditClientModal;
+export default AddClientModal;
