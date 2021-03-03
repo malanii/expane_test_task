@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Client } from "../../../interfaces";
 import { UpdateClient } from "../../../helpers/requests";
 import { useMutation } from "react-query";
+import Input from "./Input";
 
 const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
   const { register, handleSubmit, errors } = useForm<Client>();
@@ -15,7 +16,7 @@ const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
     phone: client.phone,
   });
 
-  const { mutate, isSuccess, isLoading } = useMutation(UpdateClient, {
+  const { mutate, isSuccess, isLoading, isError } = useMutation(UpdateClient, {
     onSuccess: () => refetch(),
   });
 
@@ -38,64 +39,47 @@ const FormModal: React.FC<FormProps> = ({ client, refetch }) => {
   if (isLoading) {
     return <p>Please, wait, loading </p>;
   }
-
+  if (isError) {
+    return <p>Oopps, something went wrong</p>;
+  }
   return (
     <div className="w-3/6 flex flex-col justify-center items-center h-full bg-green-500">
       <p className="text-center text-green-900 mb-5 px-2 font-bold text-2xl">
         {ComponentsText.modal}
       </p>
       <form className="flex flex-col w-4/5 text-center" onSubmit={onSubmit}>
-        <label className="text-green-900 font-semibold">{FormLabels.id}</label>
-        {errors.id && <p>This field is required</p>}
-        <input
-          className="my-1 text-center"
-          type="text"
-          name="id"
-          defaultValue={client.id}
-          onChange={handleChange}
-          ref={register({ required: true })}
-        />
-        <label className="text-green-900 font-semibold">
-          {FormLabels.name}
-        </label>
-        {errors.firstName && <p>This field is required</p>}
-        <input
-          type="text"
-          name="firstName"
-          className="my-1 text-center"
+        <Input
+          register={register}
           defaultValue={client.firstName}
-          onChange={handleChange}
-          ref={register({ required: true })}
+          error={errors.firstName}
+          handleChange={handleChange}
+          name="firstName"
+          labelText={FormLabels.name}
         />
-        <label className="text-green-900 font-semibold">
-          {FormLabels.lastName}
-        </label>
-        {errors.lastName && <p>This field is required</p>}
-        <input
-          type="text"
-          name="lastName"
-          className="my-1 text-center"
-          onChange={handleChange}
+
+        <Input
+          register={register}
           defaultValue={client.lastName}
-          ref={register({ required: true })}
+          error={errors.lastName}
+          handleChange={handleChange}
+          name="lastName"
+          labelText={FormLabels.lastName}
         />
-        <label className="text-green-900 font-semibold">
-          {FormLabels.phone}
-        </label>
-        {errors.phone && <p>This field is required</p>}
-        <input
-          type="text"
-          name="phone"
-          className="my-1 text-center"
-          onChange={handleChange}
+
+        <Input
+          register={register}
           defaultValue={client.phone}
-          ref={register({ required: true })}
+          error={errors.phone}
+          handleChange={handleChange}
+          name="phone"
+          labelText={FormLabels.phone}
         />
+
         <button
           className="w-full bg-green-700 mt-3 py-2 text-white font-semibold"
           type="submit"
         >
-          Change
+          {FormLabels.btn}
         </button>
       </form>
     </div>

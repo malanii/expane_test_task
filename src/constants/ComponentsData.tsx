@@ -33,4 +33,6 @@ export const FormLabels: Text = {
   name: "First Name",
   lastName: "Last Name",
   phone: "Phone",
+  errorMessage: "This field is required",
+  btn: "Change"
 };

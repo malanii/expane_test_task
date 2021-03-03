@@ -45,3 +45,11 @@ export interface ShortenedClient {
   lastName: string;
   phone: string;
 }
+export interface InputProps {
+  handleChange: (event:any) => void;
+  name: string;
+  error:any;
+  register: any;
+  labelText: string;
+  defaultValue: string;
+}
