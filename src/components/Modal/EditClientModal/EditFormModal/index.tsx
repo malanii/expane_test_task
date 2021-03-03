@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormProps, ShortenedClient } from "../../../../interfaces";
+import { FormProps } from "../../../../interfaces";
 import {
   ComponentsText,
   FormLabels,
@@ -14,18 +14,19 @@ import ProcessMessage from "../../ProcessMessage";
 
 const EditFormModal: React.FC<FormProps> = ({ client, refetch }) => {
   const { register, handleSubmit, errors } = useForm<Client>();
-  const [updatedClient, setUpdatingClient] = useState<ShortenedClient>({
+  const [updatedClient, setUpdatingClient] = useState<Client>({
     id: client.id,
     firstName: client.firstName,
     lastName: client.lastName,
     phone: client.phone,
+    avatarUrl: client.avatarUrl,
   });
 
   const { mutate, isSuccess, isLoading, isError } = useMutation(UpdateClient, {
     onSuccess: () => refetch(),
   });
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUpdatingClient((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,

@@ -13,7 +13,11 @@ export const Input: React.FC<InputProps> = ({
   return (
     <>
       <label className="text-green-900 font-semibold">{labelText}</label>
-      {error && <p>{FormLabels.errorMessage}</p>}
+      {error && (
+        <p className="text-red-700 font-semibold text-sm">
+          {FormLabels.errorMessage}
+        </p>
+      )}
       <input
         className="my-1 text-center"
         type="text"

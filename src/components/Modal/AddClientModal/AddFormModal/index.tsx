@@ -5,13 +5,13 @@ import {
   ModalProcessingText,
 } from "../../../../constants/ComponentsData";
 import { useForm } from "react-hook-form";
-import { Client } from "../../../../interfaces";
+import { Client, Refetch } from "../../../../interfaces";
 import { AddClient } from "../../../../helpers/requests";
 import { useMutation } from "react-query";
 import Input from "../../Input";
 import ProcessMessage from "../../ProcessMessage";
 
-const AddFormModal: React.FC<any> = ({refetch}) => {
+const AddFormModal: React.FC<Refetch> = ({ refetch }) => {
   const { register, handleSubmit, errors } = useForm<Client>();
   const [addedClient, setAddingClient] = useState<Client>({
     id: "",
@@ -25,8 +25,8 @@ const AddFormModal: React.FC<any> = ({refetch}) => {
     onSuccess: () => refetch(),
   });
 
-  const handleChange = (event: any) => {
-    setAddingClient((prevState) => ({
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setAddingClient((prevState: Client) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));

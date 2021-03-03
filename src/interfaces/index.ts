@@ -31,24 +31,25 @@ export interface PortalProps {
 }
 
 export interface EditClientProps {
-  handleModal: any;
+  handleModal: React.MouseEventHandler<HTMLButtonElement>;
   client: Client;
+  refetch: () => void;
 }
-
+export interface AddModalProps {
+  handleModal: React.MouseEventHandler<HTMLButtonElement>;
+  refetch: () => void;
+}
 export interface FormProps {
   client: Client;
   refetch: () => void;
 }
-export interface ShortenedClient {
-  id: string;
-  firstName: string;
-  lastName: string;
-  phone: string;
+export interface Refetch {
+  refetch: () => void;
 }
 export interface InputProps {
-  handleChange: (event:any) => void;
+  handleChange: React.ChangeEventHandler<HTMLInputElement>
   name: string;
-  error:any;
+  error: any;
   register: any;
   labelText: string;
   defaultValue: string;

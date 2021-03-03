@@ -5,7 +5,11 @@ import ContentModal from "../ContentModal";
 import EditFormModal from "./EditFormModal";
 import { EditClientProps } from "../../../interfaces";
 
-const EditClientModal: React.FC<any> = ({ handleModal, client, refetch }) => {
+const EditClientModal: React.FC<EditClientProps> = ({
+  handleModal,
+  client,
+  refetch,
+}) => {
   return (
     <Portal className="root-portal" el="div">
       <WrapperForModal>
@@ -17,7 +21,7 @@ const EditClientModal: React.FC<any> = ({ handleModal, client, refetch }) => {
         </button>
         <div className="flex justify-between h-full">
           <ContentModal />
-          <EditFormModal client={client} refetch={refetch}/>
+          <EditFormModal client={client} refetch={refetch} />
         </div>
       </WrapperForModal>
     </Portal>

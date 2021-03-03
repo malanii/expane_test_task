@@ -1,6 +1,6 @@
 import React from "react";
 import { HeaderOfTable, Images } from "../../../constants/ComponentsData";
-import { ClientsTableProps } from "../../../interfaces";
+import { Client, ClientsTableProps } from "../../../interfaces";
 
 const { editIcon } = Images;
 
@@ -9,7 +9,7 @@ const ClientsTable: React.FC<ClientsTableProps> = ({ clients, editClient }) => {
     <table className="table-auto m-auto border border-green-100 w-9/12">
       <thead>
         <tr>
-          {HeaderOfTable.map((i) => (
+          {HeaderOfTable.map((i: string) => (
             <th
               key={i}
               className="border border-green-400 text-xl text-green-900"
@@ -21,10 +21,10 @@ const ClientsTable: React.FC<ClientsTableProps> = ({ clients, editClient }) => {
       </thead>
       <tbody>
         {[...clients?.getClients]
-          .sort((a, b) => {
+          .sort((a: Client, b: Client) => {
             return +a.id - +b.id;
           })
-          .map((item, index) => (
+          .map((item: Client, index: number) => (
             <tr
               key={item.id}
               className="border border-green-400 text-green-900"
