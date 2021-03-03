@@ -19,6 +19,7 @@ export const ComponentsText: Text = {
   title: "Our Clients",
   modal: "Do you really want to change some information about clients?",
   addModal: "Please, add information about client",
+  nav: "Tools to automate and grow your business",
 };
 export const HeaderOfTable: Array<string> = [
   "N",

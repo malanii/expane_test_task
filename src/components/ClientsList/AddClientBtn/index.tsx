@@ -10,7 +10,7 @@ export const AddClientBtn: React.FC<any> = ({refetch}) => {
   return (
     <>
       <button
-        className="border border-green-800 rounded-full p-3 text-sm text-green-800 focus:outline-none font-semibold shadow-xl"
+        className="border border-green-800 rounded-full px-6 py-3 text-sm text-green-800 focus:outline-none font-semibold shadow-xl"
         onClick={handleModal}
       >
         {ComponentsText.addBtn}

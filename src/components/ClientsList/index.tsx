@@ -34,7 +34,6 @@ const ClientsList: React.FC = () => {
         <Title />
         <AddClientBtn refetch={refetch}/>
       </div>
-
       <ClientsTable clients={data} editClient={editClient} />
       {modalVisibility && (
         <EditClientModal
